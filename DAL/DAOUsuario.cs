@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using Forum.API.Connection;
 using Forum.API.Models;
 
 namespace Forum.API.DAL
@@ -10,8 +11,7 @@ namespace Forum.API.DAL
         SqlConnection con = null;
         SqlCommand cmd = null;
         SqlDataReader dr = null;
-        string conn_str = @"Data Source=.\SQLEXPRESS; Initial Catalog=Forum; uid=sa; pwd=senai@123"; //connection string
-        
+                
         /// <summary>
             /// Fornece lista de todos os usuários cadastrados.
             /// </summary>
@@ -20,7 +20,7 @@ namespace Forum.API.DAL
             var ls = new List<Usuario>(); //empty list of users
 
             try{
-                con = new SqlConnection(conn_str); //SQL connection
+                con = new SqlConn().Connection(); //SQL connection using private string
 
                 string query = "SELECT * FROM Usuario"; //SQL Query
 
@@ -55,7 +55,7 @@ namespace Forum.API.DAL
             bool r = false;
 
             try{
-                con = new SqlConnection(conn_str); //SQL connection
+                con = new SqlConn().Connection(); //SQL connection
 
                 string query = "INSERT INTO usuario (nome, login, senha) VALUES (@n, @l, @s)"; //SQL Query
 
@@ -90,7 +90,7 @@ namespace Forum.API.DAL
             bool r = false;
 
             try{
-                con = new SqlConnection(conn_str); //SQL connection
+                con = new SqlConn().Connection(); //SQL connection
 
                 string query = "UPDATE usuario SET nome=@n, login=@l, senha=@s WHERE id=@i"; //SQL Query
 
@@ -126,7 +126,7 @@ namespace Forum.API.DAL
             bool r = false;
 
             try{
-                con = new SqlConnection(conn_str); //SQL connection
+                con = new SqlConn().Connection(); //SQL connection
 
                 string query = "DELETE usuario WHERE id=@i"; //SQL Query
 
