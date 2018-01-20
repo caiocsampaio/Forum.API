@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using Forum.API.Connection;
 using Forum.API.Models;
 
 namespace Forum.API.DAL
@@ -10,7 +11,6 @@ namespace Forum.API.DAL
         SqlConnection con = null;
         SqlCommand cmd = null;
         SqlDataReader dr = null;
-        string conn_str = @"Data Source=.\SQLEXPRESS; Initial Catalog=Forum; uid=sa; pwd=senai@123"; //connection string
         
         /// <summary>
             /// Fornece lista de todos os tópicos.
@@ -20,7 +20,7 @@ namespace Forum.API.DAL
             var ls = new List<Topico>(); //empty list of posts
 
             try{
-                con = new SqlConnection(conn_str); //SQL connection
+                con = new SqlConn().Connection(); //SQL connection
 
                 string query = "SELECT * FROM topicoforum"; //SQL Query
 
