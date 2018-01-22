@@ -50,7 +50,13 @@ namespace Forum.API.DAL
 
             return ls;
         }
+        /// <summary>
+            /// Cadastrar novo topico no forum.
+            /// </summary>
+            /// <param name="post">classe Topico recebido por JSON.</param><br />
+            /// <returns>True or False</returns>
         public bool CadastrarTopico(Topico post){
+                
             bool r = false;
 
             try{
@@ -83,7 +89,11 @@ namespace Forum.API.DAL
             
             return r;
         }
-
+        /// <summary>
+            /// Edita informações de um tópico existente.
+            /// </summary>
+            /// <param name="post">classe Topico recebido por JSON.</param><br />
+            /// <returns>True or False</returns>
         public bool EditarTopico(Topico post){
             bool r = false;
 
@@ -118,7 +128,12 @@ namespace Forum.API.DAL
             
             return r;
         }
-
+        /// <summary>
+            /// Exclui tópico do banco de dados.  
+            /// ***A ação NÃO pode ser desfeita.***
+            /// </summary>
+            /// <param name="post">classe Topico recebido por JSON.</param><br />
+            /// <returns>True or False</returns>
         public bool ExcluirTopico(int id){
             bool r = false;
 

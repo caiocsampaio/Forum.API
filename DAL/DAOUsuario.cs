@@ -22,7 +22,7 @@ namespace Forum.API.DAL
             try{
                 con = new SqlConn().Connection(); //SQL connection using private string
 
-                string query = "SELECT * FROM Usuario"; //SQL Query
+                string query = "SELECT * FROM Usuarios"; //SQL Query
 
                 cmd = new SqlCommand(query, con); //SQL command
 
@@ -57,7 +57,7 @@ namespace Forum.API.DAL
             try{
                 con = new SqlConn().Connection(); //SQL connection
 
-                string query = "INSERT INTO usuario (nome, login, senha) VALUES (@n, @l, @s)"; //SQL Query
+                string query = "INSERT INTO usuarios (nome, login, senha) VALUES (@n, @l, @s)"; //SQL Query
 
                 cmd = new SqlCommand(query, con); //SQL command and parameters
                 cmd.Parameters.AddWithValue("@n", user.nome);
@@ -92,7 +92,7 @@ namespace Forum.API.DAL
             try{
                 con = new SqlConn().Connection(); //SQL connection
 
-                string query = "UPDATE usuario SET nome=@n, login=@l, senha=@s WHERE id=@i"; //SQL Query
+                string query = "UPDATE usuarios SET nome=@n, login=@l, senha=@s WHERE id=@i"; //SQL Query
 
                 cmd = new SqlCommand(query, con); //SQL command and parameters
                 cmd.Parameters.AddWithValue("@n", user.nome);
@@ -128,7 +128,7 @@ namespace Forum.API.DAL
             try{
                 con = new SqlConn().Connection(); //SQL connection
 
-                string query = "DELETE usuario WHERE id=@i"; //SQL Query
+                string query = "DELETE usuarios WHERE id=@i"; //SQL Query
 
                 cmd = new SqlCommand(query, con); //SQL command and parameter
                 cmd.Parameters.AddWithValue("@i", id);
