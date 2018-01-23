@@ -12533,23 +12533,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\caioc\\.nuget\\packages\\": {},
+    "C:\\Users\\37795527876\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\caioc\\Forum.API\\Forum.API.csproj",
+      "projectUniqueName": "C:\\Users\\37795527876\\backend\\Forum.API\\Forum.API.csproj",
       "projectName": "Forum.API",
-      "projectPath": "C:\\Users\\caioc\\Forum.API\\Forum.API.csproj",
-      "packagesPath": "C:\\Users\\caioc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\caioc\\Forum.API\\obj\\",
+      "projectPath": "C:\\Users\\37795527876\\backend\\Forum.API\\Forum.API.csproj",
+      "packagesPath": "C:\\Users\\37795527876\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\37795527876\\backend\\Forum.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\caioc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\37795527876\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -12573,7 +12573,7 @@
         "dependencies": {
           "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "2.0",
+            "version": "2.0.0",
             "autoReferenced": true
           },
           "Microsoft.AspNetCore.All": {
