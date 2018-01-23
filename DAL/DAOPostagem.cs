@@ -6,19 +6,18 @@ using Forum.API.Models;
 
 namespace Forum.API.DAL
 {
-    public class DAOPostagem
+    public class DAOPostagem : SqlConnect
     {
-        SqlConnection con = null;
-        SqlCommand cmd = null;
-        SqlDataReader dr = null;
-        string conn_string = @"Data Source=.\SQLEXPRESS; Initial Catalog=Forum; uid=sa; pwd=senai@123";
+
         public List<Postagem> ListarPostagens(){
             //var ls = new List<Postagem>(); //empty list of messages
 
             var ls = new List<Postagem>(); 
 
             try{
-                con = new SqlConnection(conn_string); //SQL connection using private string
+                con = new SqlConnection();
+                cmd = new SqlCommand();
+                con.ConnectionString = DbPath();
                 
                 string query = "SELECT p.id, p.idtopico, t.titulo, t.descricao, p.mensagem, p.idusuario, u.nome, p.datapublicacao " +
                                 "FROM postagens AS p " +
@@ -65,7 +64,9 @@ namespace Forum.API.DAL
             bool r = false;
 
             try{
-                con = new SqlConnection(conn_string); //SQL connection using private string
+                con = new SqlConnection();
+                cmd = new SqlCommand();
+                con.ConnectionString = DbPath(); //SQL connection using private string
 
                 string query = "INSERT INTO postagens (idtopico, idusuario, mensagem) VALUES (@idt, @idu, @msg)"; //SQL Query
 
@@ -104,7 +105,9 @@ namespace Forum.API.DAL
             bool r = false;
 
             try{
-                con = new SqlConnection(conn_string); //SQL connection using private string
+                con = new SqlConnection();
+                cmd = new SqlCommand();
+                con.ConnectionString = DbPath(); //SQL connection using private string
 
                 string query = "UPDATE postagens SET mensagem=@msg WHERE id=@i"; //SQL Query
 
@@ -142,7 +145,9 @@ namespace Forum.API.DAL
             bool r = false;
 
             try{
-                con = new SqlConnection(conn_string); //SQL connection using private string
+                con = new SqlConnection();
+                cmd = new SqlCommand();
+                con.ConnectionString = DbPath(); //SQL connection using private string
 
                 string query = "DELETE postagens WHERE id=@i"; //SQL Query
 

@@ -6,12 +6,8 @@ using Forum.API.Models;
 
 namespace Forum.API.DAL
 {
-    public class DAOUsuario
-    {
-        SqlConnection con = null;
-        SqlCommand cmd = null;
-        SqlDataReader dr = null;
-                
+    public class DAOUsuario : SqlConnect
+    {                
         /// <summary>
             /// Fornece lista de todos os usuários cadastrados.
             /// </summary>
@@ -20,7 +16,9 @@ namespace Forum.API.DAL
             var ls = new List<Usuario>(); //empty list of users
 
             try{
-                con = new SqlConn().Connection(); //SQL connection using private string
+                con = new SqlConnection();
+                cmd = new SqlCommand();
+                con.ConnectionString = DbPath();
 
                 string query = "SELECT * FROM Usuarios"; //SQL Query
 
@@ -55,7 +53,9 @@ namespace Forum.API.DAL
             bool r = false;
 
             try{
-                con = new SqlConn().Connection(); //SQL connection
+                con = new SqlConnection();
+                cmd = new SqlCommand();
+                con.ConnectionString = DbPath(); //SQL connection
 
                 string query = "INSERT INTO usuarios (nome, login, senha) VALUES (@n, @l, @s)"; //SQL Query
 
@@ -90,7 +90,9 @@ namespace Forum.API.DAL
             bool r = false;
 
             try{
-                con = new SqlConn().Connection(); //SQL connection
+                con = new SqlConnection();
+                cmd = new SqlCommand();
+                con.ConnectionString = DbPath(); //SQL connection
 
                 string query = "UPDATE usuarios SET nome=@n, login=@l, senha=@s WHERE id=@i"; //SQL Query
 
@@ -126,7 +128,9 @@ namespace Forum.API.DAL
             bool r = false;
 
             try{
-                con = new SqlConn().Connection(); //SQL connection
+                con = new SqlConnection();
+                cmd = new SqlCommand();
+                con.ConnectionString = DbPath(); //SQL connection
 
                 string query = "DELETE usuarios WHERE id=@i"; //SQL Query
 

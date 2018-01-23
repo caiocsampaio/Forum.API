@@ -6,11 +6,8 @@ using Forum.API.Models;
 
 namespace Forum.API.DAL
 {
-    public class DAOTopico
+    public class DAOTopico : SqlConnect
     {
-        SqlConnection con = null;
-        SqlCommand cmd = null;
-        SqlDataReader dr = null;
         
         /// <summary>
             /// Fornece lista de todos os tópicos.
@@ -20,7 +17,9 @@ namespace Forum.API.DAL
             var ls = new List<Topico>(); //empty list of posts
 
             try{
-                con = new SqlConn().Connection(); //SQL connection using private string
+                con = new SqlConnection();
+                cmd = new SqlCommand();
+                con.ConnectionString = DbPath(); //SQL connection using private string
 
                 string query = "SELECT * FROM topicoforum"; //SQL Query
 
@@ -60,7 +59,9 @@ namespace Forum.API.DAL
             bool r = false;
 
             try{
-                con = new SqlConn().Connection(); //SQL connection using private string
+                con = new SqlConnection();
+                cmd = new SqlCommand();
+                con.ConnectionString = DbPath(); //SQL connection using private string
 
                 string query = "INSERT INTO topicoforum (titulo, descricao) VALUES (@n, @d)"; //SQL Query
 
@@ -98,7 +99,9 @@ namespace Forum.API.DAL
             bool r = false;
 
             try{
-                con = new SqlConn().Connection(); //SQL connection using private string
+                con = new SqlConnection();
+                cmd = new SqlCommand();
+                con.ConnectionString = DbPath(); //SQL connection using private string
 
                 string query = "UPDATE topicoforum SET titulo=@n, descricao=@d WHERE id=@i"; //SQL Query
 
@@ -138,7 +141,9 @@ namespace Forum.API.DAL
             bool r = false;
 
             try{
-                con = new SqlConn().Connection(); //SQL connection using private string
+                con = new SqlConnection();
+                cmd = new SqlCommand();
+                con.ConnectionString = DbPath(); //SQL connection using private string
 
                 string query = "DELETE topicoforum WHERE id=@i"; //SQL Query
 
