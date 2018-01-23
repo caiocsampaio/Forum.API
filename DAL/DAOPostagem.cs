@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using Forum.API.Connection;
@@ -12,7 +13,7 @@ namespace Forum.API.DAL
         public List<Postagem> ListarPostagens(){
             //var ls = new List<Postagem>(); //empty list of messages
 
-            var ls = new List<Postagem>(); 
+            var ls = new List<Postagem>();
 
             try{
                 con = new SqlConnection();

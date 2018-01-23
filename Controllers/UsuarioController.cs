@@ -14,14 +14,28 @@ namespace Forum.API.Controllers
         DAOUsuario dao = new DAOUsuario();
         
         [HttpGet]
-        public IEnumerable<Usuario> ListarUsuarios(){
-            return dao.ListarUsuarios();
+        public IActionResult ListarUsuarios(){
+            var r = new JsonResult(dao.ListarUsuarios());
+            return Json(r);
         }
 
         [HttpGet("{id}", Name="Usuario")]
-        public Usuario Usuario(int id){
-            return dao.ListarUsuarios().Where(u => u.id == id).FirstOrDefault();
+        public IActionResult Usuario(int id){
+            var rs = new JsonResult(dao.ListarUsuarios().Where(u => u.id == id).FirstOrDefault());
+            rs.ContentType = "application/json";
+
+            if(rs.Value == null){ //Json value verification
+                rs.StatusCode = 204;
+                rs.Value = "Sem resultados";
+            }
+            else
+                rs.StatusCode = 200;
+
+            return Json(rs); //Json return
         }
+        // public Usuario Usuario(int id){
+        //     return dao.ListarUsuarios().Where(u => u.id == id).FirstOrDefault();
+        // }
 
         [HttpPost]
         public Usuario CadastrarUsuario([FromBody] Usuario user){
